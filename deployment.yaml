@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: project-site-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: project-site
+  template:
+    metadata:
+      labels:
+        app: project-site
+    spec:
+      containers:
+      - name: project-site
+        image: teja2610/project-site:latest
+        ports:
+        - containerPort: 80
